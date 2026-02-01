@@ -1,10 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+ All colors MUST be HSL.
+ */
 
 @layer base {
   :root {
@@ -53,6 +56,17 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom mobile-store palette (hex values preserved for exact match) */
+    --primary-color: #8A2BE2;
+    --bg-cool-gray: #E0E7EB;
+    --bg-dark-section: #1A202C;
+    --rating-green: #39FF14;
+    --nav-bg: #224D44;
+    --stock-green-bg: #E8F5E9;
+    --stock-green-text: #2E7D32;
+    --stock-blue-bg: #E3F2FD;
+    --stock-blue-text: #1565C0;
   }
 
   .dark {
@@ -101,5 +115,56 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 }
+
+@layer utilities {
+  .filled {
+    font-variation-settings: "FILL" 1;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(90deg, #A4D65E 0%, #76C138 100%);
+  }
+
+  .leaf-logo {
+    width: 40px;
+    height: 25px;
+    background: linear-gradient(135deg, #a7ea4e 0%, #7dc928 100%);
+    border-radius: 0 100% 0 100%;
+    transform: rotate(-10deg);
+    position: relative;
+  }
+
+  .leaf-logo::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 100% 0 100%;
+    background: linear-gradient(135deg, #c5f182 0%, #a7ea4e 100%);
+    transform: scale(0.7) translateY(-3px);
+    opacity: 0.6;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .dropdown-menu {
+    display: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    display: block;
+  }
+}
+
